@@ -5,11 +5,17 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public TMP_Text countText;
 
-    public int count = 0;
+    [SerializeField] TMP_Text countText;
+    [SerializeField] TMP_Text incomeText;
+    [SerializeField] Upgrades[] upgrades;
+
+
+    float count = 0;
     int count2 = 0;
     float nextTimecheck = 1;
+    float lastIncomeValue = 0;
+    float sum = 0;
     void Start()
     {
         UpdateUI();
@@ -26,10 +32,19 @@ public class GameManager : MonoBehaviour
     }
     void IdleCalculate()
     {
+        //
+        foreach (var upgrade in upgrades)
+        {
+            sum += upgrade.CalculateIncomePerSecond();
+        }
+        lastIncomeValue = sum;
+        count += sum;
 
+        UpdateUI();
     }
     public bool buyAction(int cost)
     {
+
         if (count >= cost)
         {
             count -= cost;
@@ -50,7 +65,9 @@ public class GameManager : MonoBehaviour
 
     void UpdateUI()
     {
-        countText.text = count.ToString(); 
+        countText.text = Mathf.RoundToInt(count).ToString();
+        Debug.Log(count);
+        incomeText.text = lastIncomeValue.ToString() + "/s";
     }
 
 }
