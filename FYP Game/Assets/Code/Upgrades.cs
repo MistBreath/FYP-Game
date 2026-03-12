@@ -10,7 +10,7 @@ public class Upgrades : MonoBehaviour
     public TMP_Text percentageInfoText;
     public int startNumber = 5;
     public float upgradeNumberMultiplier;
-    public float NumberPerUpgrade = 1f;
+    public float NumberPerUpgrade = 5f;
     [Header("Managers")]
     public GameManager gameManager;
     [Header("Generator values")]

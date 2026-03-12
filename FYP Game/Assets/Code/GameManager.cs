@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     }
     void IdleCalculate()
     {
-        //
+        sum = 0f;
         foreach (var upgrade in upgrades)
         {
             sum += upgrade.CalculateIncomePerSecond();
