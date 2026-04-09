@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
     }
     public void ClickAction()
     {
-        Debug.Log("CLICK!!!!");
         count++;
         Debug.Log(count);
         UpdateUI();
@@ -66,7 +65,8 @@ public class GameManager : MonoBehaviour
     void UpdateUI()
     {
         countText.text = Mathf.RoundToInt(count).ToString();
-        Debug.Log(count);
+        //countText.text = "" + count;
+        
         incomeText.text = lastIncomeValue.ToString() + "/s";
     }
 

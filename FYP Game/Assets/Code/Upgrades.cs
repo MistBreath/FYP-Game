@@ -33,10 +33,11 @@ public class Upgrades : MonoBehaviour
        
 
         //Canvas c = GetComponentInParent<Canvas>();
-        GameManager gm = c.GetComponent<GameManager>();
+        //GameManager gm = c.GetComponent<GameManager>();
+
 
         int price = CalculateNumber();
-        bool buySuccess = gm.buyAction(price); // gameManager.buyAction(price);
+        bool buySuccess = gameManager.buyAction(price); // gameManager.buyAction(price);
         if (buySuccess)
         {
             level++;
